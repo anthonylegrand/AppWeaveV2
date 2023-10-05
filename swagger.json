@@ -1,0 +1,60 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "Swagger AppWeave - V2",
+    "description": "Here is the Swagger page of the RestAPI AppWeave, listing all the routes that can be used for RestAPI calls. The GitHub [link](https://github.com/anthonylegrand/AppWeaveV2) is also available for further documentation.",
+    "contact": {
+      "email": "contact@appweave.online"
+    },
+    "version": "1.0.0"
+  },
+  "servers": [
+    {
+      "url": "http://localhost:81"
+    },
+    {
+      "url": "http://api.appweave.online"
+    }
+  ],
+  "tags": [
+    {
+      "name": "kuma",
+      "description": "Call a test route to check api availability"
+    }
+  ],
+  "paths": {
+    "/kuma/ping": {
+      "get": {
+        "tags": ["kuma"],
+        "summary": "Test server availability",
+        "description": "Can be called without authentication",
+        "operationId": "pingService",
+        "responses": {
+          "200": {
+            "description": "Successful operation",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/kuma"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "kuma": {
+        "type": "object",
+        "properties": {
+          "ping": {
+            "type": "string",
+            "example": "pong"
+          }
+        }
+      }
+    }
+  }
+}
