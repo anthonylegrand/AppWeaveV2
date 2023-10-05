@@ -1,0 +1,131 @@
+body {
+  font-family: "Muli", sans-serif;
+  height: 100vh;
+  margin: 0;
+}
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 5em;
+}
+header > div {
+  max-height: 38px;
+}
+header ul {
+  list-style-type: none;
+  border: 1px solid lightgray;
+  border-radius: 15px;
+  margin: 0;
+  padding: 0;
+}
+
+header ul > li {
+  padding: 10px;
+}
+header ul > li > a {
+  text-decoration: none;
+}
+header ul > li:hover {
+  cursor: pointer;
+  background-color: #d3d3d380;
+  border-radius: 15px;
+}
+header ul > li:not(:first-child) {
+  display: none;
+  padding-left: 20px;
+}
+header ul:hover > li {
+  display: block;
+}
+
+section {
+  margin: 2em 25%;
+}
+section > div {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 50px;
+  margin-top: 2em;
+}
+
+h3 {
+  font-size: xx-large;
+  margin: 1rem 0;
+}
+input {
+  border: 1px solid #bbbdc3;
+  border-radius: 15px;
+  padding: 8px 25px;
+}
+article {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+article.create-new > div,
+article > div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 150px;
+  height: 150px;
+  border-radius: 20px;
+  margin-bottom: 0.5rem;
+  font-size: x-large;
+  color: white;
+}
+article.create-new > div {
+  background-color: white !important;
+  color: #1f85ff !important;
+  border: 2px dashed #1f85ff;
+  border-spacing: 5px;
+}
+article.create-new > div > h3 {
+  font-size: large;
+  text-align: center;
+}
+article label {
+  color: #202125;
+}
+article lore {
+  color: #a1a2a7;
+}
+
+article:hover > div {
+  cursor: pointer;
+  box-shadow: 3px 3px 15px rgba(0, 0, 0, 0.5);
+}
+
+article:nth-child(10n + 1) > div {
+  background-color: #9b59b6;
+}
+article:nth-child(10n + 2) > div {
+  background-color: #3498db;
+}
+article:nth-child(10n + 3) > div {
+  background-color: #2ecc71;
+}
+article:nth-child(10n + 4) > div {
+  background-color: #1abc9c;
+}
+article:nth-child(10n + 5) > div {
+  background-color: #f1c40f;
+}
+article:nth-child(10n + 6) > div {
+  background-color: #e67e22;
+}
+article:nth-child(10n + 7) > div {
+  background-color: #e74c3c;
+}
+article:nth-child(10n + 8) > div {
+  background-color: #34495e;
+}
+article:nth-child(10n + 9) > div {
+  background-color: #95a5a6;
+  color: #202125;
+}
+article:nth-child(10n + 10) > div {
+  background-color: #ecf0f1;
+  color: #202125;
+}

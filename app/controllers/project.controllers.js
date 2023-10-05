@@ -66,6 +66,7 @@ module.exports.list = async (req, res) => {
       where: {
         ownerUid: req.user.uid,
       },
+      order: [["updatedAt", "DESC"]],
     });
 
     res.status(200).json(projects);

@@ -1,12 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="public/css/style.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="public/css/projects.css" />
     <title>AppWeave - Projects</title>
-</head>
-<body>
-    <h1>Projects</h1>
-</body>
+  </head>
+  <body>
+    <header>
+      <h2>AppWeave</h2>
+      <div>
+        <ul>
+          <li id="header-user-email">My Account</li>
+          <li id="header-fluxUsage">Flux usage: 0</li>
+          <li><a href="/">Logout</a></li>
+        </ul>
+      </div>
+    </header>
+
+    <section>
+      <h3>Applications</h3>
+      <input type="text" placeholder="Search Application" />
+      <div id="applications-list">
+        <article class="create-new">
+          <div>
+            <h3>Create a new application</h3>
+          </div>
+        </article>
+        <!-- JS Generation -->
+      </div>
+    </section>
+
+    <script src="public/js/projects.js"></script>
+  </body>
 </html>
