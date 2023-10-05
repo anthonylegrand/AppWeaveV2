@@ -4,6 +4,7 @@ module.exports = (sequelize) => {
   const { Projects } = sequelize.models;
 
   Projects.beforeValidate(async (projects, options) => {
+    if (options?.type === "BULKUPDATE") return;
     projects.publicKey = randomstring.generate(6);
     projects.privateKey = randomstring.generate(22);
   });
@@ -15,11 +16,6 @@ module.exports = (sequelize) => {
         include: options.attributes,
       };
 
-    options.attributes.exclude = [
-      "updatedAt",
-      "createdAt",
-      "publicKey",
-      "privateKey",
-    ];
+    options.attributes.exclude = ["createdAt", "privateKey"];
   });
 };
