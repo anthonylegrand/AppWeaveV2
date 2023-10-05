@@ -20,6 +20,10 @@
     {
       "name": "kuma",
       "description": "Call a test route to check api availability"
+    },
+    {
+      "name": "user",
+      "description": "Interact with the user authenticated by the authentication token"
     }
   ],
   "paths": {
@@ -42,10 +46,95 @@
           }
         }
       }
+    },
+    "/user/profil": {
+      "get": {
+        "tags": ["user"],
+        "summary": "Retrieve profile information",
+        "description": "Must be authenticated to be called",
+        "operationId": "authProfil",
+        "responses": {
+          "200": {
+            "description": "Successful operation",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/userProfil"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthenticated request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/noAuth"
+                }
+              }
+            }
+          }
+        },
+        "security": [{ "bearerAuth": [] }]
+      }
     }
   },
   "components": {
     "schemas": {
+      "default_result": {
+        "type": "object",
+        "properties": {
+          "sucess": {
+            "type": "boolean"
+          }
+        }
+      },
+      "noAuth": {
+        "type": "object",
+        "properties": {
+          "sucess": {
+            "type": "boolean",
+            "exemple": false
+          },
+          "error": {
+            "type": "string",
+            "exemple": "Token missing. Authentication required."
+          }
+        }
+      },
+      "userProfil": {
+        "type": "object",
+        "properties": {
+          "uid": {
+            "type": "string",
+            "example": "QkZApItXjJVKHUVMy9MQggjCYG23"
+          },
+          "name": {
+            "type": "string",
+            "example": "John James"
+          },
+          "email": {
+            "type": "string",
+            "example": "john@email.com"
+          },
+          "email_verified": {
+            "type": "boolean",
+            "example": true
+          },
+          "anonymous": {
+            "type": "boolean",
+            "example": false
+          },
+          "fluxUsage": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "createdAt": {
+            "type": "string",
+            "format": "date-time"
+          }
+        }
+      },
       "kuma": {
         "type": "object",
         "properties": {
@@ -54,6 +143,14 @@
             "example": "pong"
           }
         }
+      }
+    },
+    "securitySchemes": {
+      "bearerAuth": {
+        "type": "http",
+        "description": "JWT Authorization header using the Bearer scheme.",
+        "scheme": "bearer",
+        "bearerFormat": "JWT"
       }
     }
   }
