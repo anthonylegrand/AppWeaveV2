@@ -1,0 +1,146 @@
+:root {
+  --gradient: linear-gradient(75deg, #f4c395, #f27f94);
+  --gray-color: #00000099;
+  --dark-color: #33394f;
+  --pink-btn-color: #fc728b;
+
+  --google-bg: #fff;
+  --google-text: #1d1c2b;
+  --facebook-bg: #1877f2;
+  --facebook-text: #ffffff;
+  --apple-bg: #000000;
+  --apple-text: #ffffff;
+}
+
+body {
+  font-family: "Muli", sans-serif;
+  display: flex;
+  height: 100vh;
+  margin: 0;
+}
+section {
+  flex: 1;
+  margin: 22px;
+  padding: 85px 50px;
+  border-radius: 25px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+#left-side {
+  flex: 2;
+  padding: 150px 80px 30px;
+  background: var(--gradient);
+}
+#left-side h1 {
+  font-size: 2.5em;
+  margin-top: 1rem;
+}
+#left-side footer {
+  font-weight: bold;
+}
+
+label {
+  font-weight: bold;
+}
+input {
+  border-radius: 8px;
+  padding: 13px 30px;
+  font-size: large;
+  border: 1px solid var(--gray-color);
+}
+button {
+  text-align: center;
+  padding: 15px;
+  background-color: var(--pink-btn-color);
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+div.or-row {
+  display: flex;
+}
+div.or-row > hr {
+  width: 100%;
+  border-color: var(--dark-color);
+}
+div.or-row > label {
+  margin: 0 10px;
+}
+div.password-row {
+  display: flex;
+  justify-content: space-between;
+}
+div.password-row a {
+  color: var(--pink-btn-color);
+}
+a.sing-up-soon {
+  width: 100%;
+  text-align: right;
+  color: var(--gray-color);
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.sing-in {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+}
+.sing-in label {
+  width: 45%;
+}
+.sing-in.google {
+  background-color: var(--google-bg);
+  color: var(--google-text);
+  border: 1px solid var(--gray-color);
+}
+.sing-in.facebook {
+  background-color: var(--facebook-bg);
+  color: var(--facebook-text);
+}
+.sing-in.apple {
+  background-color: var(--apple-bg);
+  color: var(--apple-text);
+}
+
+#carrousel-lib {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  gap: 25px;
+  overflow: auto;
+  margin-bottom: 3em;
+}
+#left-side h3 {
+  text-align: center;
+}
+#carrousel-lib article {
+  padding: 34px;
+  margin-bottom: 20px;
+  border-radius: 10px;
+  background-color: #ffe3ca;
+  box-shadow: 10px 10px 0 #1f233224;
+}
+#carrousel-lib article:hover {
+  cursor: pointer;
+  background-color: #ffffff;
+  box-shadow: 10px 10px 0 rgba(31, 35, 50, 0.25);
+}
+#carrousel-lib article > svg {
+  height: 38px;
+  width: 38px;
+}
+
+@media (max-width: 1060px) {
+  #left-side {
+    display: none;
+  }
+}
+@media (max-width: 500px) {
+  section {
+    padding: 50px 25px;
+  }
+}
