@@ -1,0 +1,40 @@
+body {
+  font-family: "Muli", sans-serif;
+  height: 100vh;
+  margin: 0;
+}
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 5em;
+}
+header > div {
+  max-height: 38px;
+}
+header ul {
+  list-style-type: none;
+  border: 1px solid lightgray;
+  border-radius: 15px;
+  margin: 0;
+  padding: 0;
+}
+header ul > li {
+  padding: 10px;
+}
+header ul > li > a {
+  text-decoration: none;
+  color: black;
+}
+header ul > li:hover {
+  cursor: pointer;
+  background-color: #d3d3d380;
+  border-radius: 15px;
+}
+header ul > li:not(:first-child) {
+  display: none;
+  padding-left: 20px;
+}
+header ul:hover > li {
+  display: block;
+}
