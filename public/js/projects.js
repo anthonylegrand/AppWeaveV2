@@ -1,6 +1,5 @@
+const applications_list = document.getElementById("applications-list");
 function fetchProjects() {
-  const applications_list = document.getElementById("applications-list");
-
   for (const child of applications_list.querySelectorAll("a")) {
     if (!child.querySelector("article#create-new")) child.remove();
   }
@@ -37,6 +36,21 @@ function fetchProjects() {
 }
 
 fetchProjects();
+
+// Filter project's by name with input #applications_filter
+document
+  .getElementById("applications_filter")
+  .addEventListener("input", (e) => {
+    Array.from(applications_list.children).map((el) => {
+      if (
+        !(el.querySelector("label")?.innerHTML?.toLowerCase() || "").includes(
+          e.target.value.toLowerCase()
+        )
+      )
+        el.style.display = "none";
+      else el.style.display = "initial";
+    });
+  });
 
 const create_new = document.getElementById("create-new");
 const create_new_input = create_new.querySelector("input");
