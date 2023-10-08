@@ -429,10 +429,6 @@
             "type": "boolean",
             "example": false
           },
-          "fluxUsage": {
-            "type": "integer",
-            "format": "int64"
-          },
           "createdAt": {
             "type": "string",
             "format": "date-time"
