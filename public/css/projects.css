@@ -73,6 +73,7 @@ article#create-new > button {
 }
 article label {
   color: #202125;
+  max-width: 146px;
 }
 article lore {
   color: #a1a2a7;
