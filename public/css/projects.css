@@ -47,6 +47,30 @@ article#create-new > div > h3 {
   font-size: large;
   text-align: center;
 }
+article#create-new.edited input,
+article#create-new.edited > button.show {
+  display: initial;
+}
+article#create-new.edited h3,
+article#create-new input,
+article#create-new > button {
+  display: none;
+}
+article#create-new input {
+  margin: 0;
+  padding: 5px 8px;
+  width: calc(146px - 40px);
+}
+article#create-new > button {
+  margin-top: 8px;
+  border: 2px solid #1f85ff;
+  background-color: #1f85ff;
+  color: #fff;
+  border-radius: 20px;
+  padding: 5px 8px;
+  width: 146px;
+  cursor: pointer;
+}
 article label {
   color: #202125;
 }

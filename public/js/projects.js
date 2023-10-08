@@ -35,3 +35,42 @@ function fetchProjects() {
       });
     });
 }
+
+fetchProjects();
+
+const create_new = document.getElementById("create-new");
+const create_new_input = create_new.querySelector("input");
+const create_new_button = create_new.querySelector("button");
+
+// Hide "New Project" input
+document.addEventListener("click", (e) => {
+  if (e.target !== create_new.querySelector(e.target.tagName)) {
+    create_new.classList = "";
+    create_new_input.value = "";
+  }
+});
+// Show "New Project" input
+create_new.addEventListener("click", (e) => {
+  if (["INPUT", "BUTTON"].includes(e.target.tagName)) return;
+  create_new.classList = "edited";
+  create_new.querySelector("input").focus();
+});
+// Put char in input
+create_new_input.addEventListener("input", () => {
+  if (create_new_input.value) create_new_button.classList = "show";
+  else create_new_button.classList = "";
+});
+// Click on btn
+create_new_button.addEventListener("click", () => {
+  fetch("/project", {
+    method: "POST",
+    body: JSON.stringify({ displayName: create_new_input.value }),
+    headers: {
+      "Content-Type": "application/json",
+    },
+  }).then((res) => {
+    create_new.classList = "";
+    create_new_input.value = "";
+    fetchProjects();
+  });
+});

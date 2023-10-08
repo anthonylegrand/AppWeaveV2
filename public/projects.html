@@ -13,7 +13,6 @@
       <div>
         <ul>
           <li id="header-user-email">My Account</li>
-          <li id="header-fluxUsage">Flux usage: 0</li>
           <li><a href="/">Logout</a></li>
         </ul>
       </div>
@@ -22,12 +21,16 @@
     <section>
       <h3>Applications</h3>
       <input type="text" placeholder="Search Application" />
-      <div id="applications-list">
-        <article class="create-new">
-          <div>
-            <h3>Create a new application</h3>
-          </div>
-        </article>
+      <div id="applications-list" class="">
+        <a>
+          <article id="create-new">
+            <div>
+              <h3>Create a new application</h3>
+              <input type="text" placeholder="My new project" />
+            </div>
+            <button>Create</button>
+          </article>
+        </a>
         <!-- JS Generation -->
       </div>
     </section>
