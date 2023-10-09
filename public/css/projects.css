@@ -26,6 +26,7 @@ article {
 article#create-new > div,
 article > div {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   width: 150px;
@@ -70,6 +71,24 @@ article#create-new > button {
   padding: 5px 8px;
   width: 146px;
   cursor: pointer;
+}
+article > div > ul {
+  display: flex;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  height: 0;
+}
+article > div > ul > li {
+  text-align: center;
+  min-height: 28px;
+  min-width: 28px;
+  border-radius: 20px;
+  margin: 0 3px;
+  background-color: #fff;
+  color: #202125;
+  box-shadow: 3px 3px 15px rgba(0, 0, 0, 0.5);
 }
 article label {
   color: #202125;
