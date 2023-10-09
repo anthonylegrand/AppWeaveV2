@@ -50,6 +50,7 @@ article#create-new > div > h3 {
 article#create-new.edited input,
 article#create-new.edited > button.show {
   display: initial;
+  min-width: 30%;
 }
 article#create-new.edited h3,
 article#create-new input,
@@ -74,6 +75,7 @@ article#create-new > button {
 article label {
   color: #202125;
   max-width: 146px;
+  text-align: center;
 }
 article lore {
   color: #a1a2a7;
@@ -121,4 +123,22 @@ a:nth-child(10n + 9) > article > div {
 a:nth-child(10n + 10) > article > div {
   background-color: #ecf0f1;
   color: #202125;
+}
+
+@media (max-width: 1550px) {
+  section {
+    margin: 2em 15%;
+  }
+}
+
+@media (max-width: 600px) {
+  header {
+    padding: 1rem 5%;
+  }
+  section {
+    margin: 2em 5%;
+  }
+  #applications-list {
+    justify-content: center;
+  }
 }
