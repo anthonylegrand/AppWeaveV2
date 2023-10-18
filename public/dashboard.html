@@ -8,15 +8,31 @@
     <title>AppWeave - Dashboard</title>
   </head>
   <body>
-    <header>
-      <h2>AppWeave</h2>
-      <div>
-        <ul>
-          <li id="header-user-email">My Account</li>
-          <li><a href="/">Logout</a></li>
-        </ul>
-      </div>
-    </header>
+    <section>
+      <header>
+        <h2>AppWeave</h2>
+        <div>
+          <a href="/projects">Projects</a>
+          /
+          <label id="header-project-name">Project name</label>
+        </div>
+        <div>
+          <ul>
+            <li id="header-user-email">My Account</li>
+            <li><a href="/">Logout</a></li>
+          </ul>
+        </div>
+      </header>
+
+      <ul>
+        <li>Mobile</li>
+        <li>Tablette</li>
+      </ul>
+    </section>
+
+    <div>
+      <iframe src="http://localhost:81/projects"> </iframe>
+    </div>
 
     <script src="public/js/script.js"></script>
     <script src="public/js/dashboard.js"></script>

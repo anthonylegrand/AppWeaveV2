@@ -6,4 +6,7 @@ fetch("/project/" + urlParams.get("projectUuid"), {
   .then((res) => res.json())
   .then((json) => {
     console.log(json);
+
+    document.getElementById("header-project-name").innerHTML =
+      json.displayName || "";
   });

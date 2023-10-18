@@ -4,6 +4,7 @@ section {
 section > div {
   display: flex;
   flex-wrap: wrap;
+  justify-content: space-between;
   gap: 50px;
   margin-top: 3rem;
 }
@@ -71,6 +72,10 @@ article#create-new > button {
   padding: 5px 8px;
   width: 146px;
   cursor: pointer;
+}
+article.deleted label,
+article.deleted lore {
+  color: #e74c3c;
 }
 article label {
   color: #202125;

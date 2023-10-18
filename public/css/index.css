@@ -53,9 +53,13 @@ input {
 button {
   text-align: center;
   padding: 15px;
+  margin: 0.5em 0;
   background-color: var(--pink-btn-color);
   border: none;
   border-radius: 8px;
+  cursor: pointer;
+}
+button > label {
   cursor: pointer;
 }
 div.or-row {
