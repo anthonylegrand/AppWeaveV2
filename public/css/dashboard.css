@@ -1,0 +1,41 @@
+body {
+  display: flex;
+}
+
+section {
+  width: 100%;
+}
+body > div {
+  display: flex;
+  align-items: center;
+  height: 100%;
+  padding: 0 3em;
+  background-color: rgb(242, 242, 242);
+}
+
+iframe {
+  height: 844px;
+  width: 390px;
+  overflow: auto;
+  border: 0;
+  border-radius: 10px;
+}
+
+ul {
+  list-style: none;
+  display: flex;
+  gap: 2em;
+  margin: 2em 0;
+  padding: 0;
+  justify-content: center;
+  align-items: center;
+}
+
+ul > li > button {
+  color: white;
+  background-color: #3498db;
+  padding: 0.75em 1.5em;
+  border: 0;
+  border-radius: 5px;
+  font-size: small;
+}

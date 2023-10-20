@@ -1,7 +1,7 @@
 require("dotenv").config();
 
 module.exports.getProfil = async (req, res) => {
-  res.status(200).json({ user: req.user });
+  res.status(200).json(req.user);
 };
 
 module.exports.logout = async (req, res) => {

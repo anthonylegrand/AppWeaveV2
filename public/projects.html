@@ -1,12 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="public/css/style.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="public/css/style.css" />
+    <link rel="stylesheet" href="public/css/projects.css" />
     <title>AppWeave - Projects</title>
-</head>
-<body>
-    <h1>Projects</h1>
-</body>
+  </head>
+  <body>
+    <header>
+      <h2>AppWeave</h2>
+      <div>
+        <ul>
+          <li id="header-user-email">My Account</li>
+          <li><a href="/">Logout</a></li>
+        </ul>
+      </div>
+    </header>
+
+    <section>
+      <h3>Applications</h3>
+      <input
+        id="applications_filter"
+        type="text"
+        placeholder="Search Application"
+        max="50"
+      />
+      <div id="applications-list" class="">
+        <a>
+          <article id="create-new">
+            <div>
+              <h3>Create a new application</h3>
+              <input type="text" placeholder="My new project" />
+            </div>
+            <button>Create</button>
+          </article>
+        </a>
+        <!-- JS Generation -->
+      </div>
+    </section>
+
+    <script src="public/js/script.js"></script>
+    <script src="public/js/projects.js"></script>
+  </body>
 </html>

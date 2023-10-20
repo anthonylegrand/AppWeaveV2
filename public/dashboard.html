@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="public/css/style.css" />
+    <link rel="stylesheet" href="public/css/dashboard.css" />
+    <title>AppWeave - Dashboard</title>
+  </head>
+  <body>
+    <section>
+      <header>
+        <h2>AppWeave</h2>
+        <div>
+          <a href="/projects">Projects</a>
+          /
+          <label id="header-project-name">Project name</label>
+        </div>
+        <div>
+          <ul>
+            <li id="header-user-email">My Account</li>
+            <li><a href="/">Logout</a></li>
+          </ul>
+        </div>
+      </header>
+
+      <ul>
+        <li>Console</li>
+        <!-- <li>Integration</li> -->
+        <li>Members</li>
+        <!-- <li>Templates</li> -->
+        <li><button>Update Application</button></li>
+      </ul>
+    </section>
+
+    <div>
+      <iframe src="http://localhost:81/projects"> </iframe>
+    </div>
+
+    <script src="public/js/script.js"></script>
+    <script src="public/js/dashboard.js"></script>
+  </body>
+</html>

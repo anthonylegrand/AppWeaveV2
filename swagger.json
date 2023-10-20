@@ -24,6 +24,10 @@
     {
       "name": "user",
       "description": "Interact with the user authenticated by the authentication token"
+    },
+    {
+      "name": "project",
+      "description": "Interact with the projects of the user authenticated by the authentication token"
     }
   ],
   "paths": {
@@ -59,7 +63,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/userProfil"
+                  "$ref": "#/components/schemas/user"
                 }
               }
             }
@@ -73,6 +77,306 @@
                 }
               }
             }
+          }
+        },
+        "security": [{ "bearerAuth": [] }]
+      }
+    },
+    "/project": {
+      "post": {
+        "tags": ["project"],
+        "summary": "Create a new project for the user",
+        "description": "Must be authenticated to be called",
+        "operationId": "projectCreation",
+        "requestBody": {
+          "description": "Project JSON body",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "displayName": {
+                    "type": "string",
+                    "example": "My Super Project",
+                    "minLength": 1,
+                    "maxLength": 50
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Successful operation",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/project"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthenticated request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/noAuth"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Error message"
+          }
+        },
+        "security": [{ "bearerAuth": [] }]
+      }
+    },
+    "/project/list": {
+      "get": {
+        "tags": ["project"],
+        "summary": "Retrieve a list of all the user's projects",
+        "description": "Must be authenticated to be called",
+        "operationId": "projectList",
+        "responses": {
+          "200": {
+            "description": "Successful operation",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/project_light"
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthenticated request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/noAuth"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Error message"
+          }
+        },
+        "security": [{ "bearerAuth": [] }]
+      }
+    },
+    "/project/{projectUuid}": {
+      "get": {
+        "tags": ["project"],
+        "summary": "Get a project for the user with uuid",
+        "description": "Must be authenticated to be called",
+        "operationId": "projectGet",
+        "parameters": [
+          {
+            "name": "projectUuid",
+            "in": "path",
+            "description": "The uuid of a project already created",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful operation",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/project_light"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Project uuid not found"
+          },
+          "401": {
+            "description": "Unauthenticated request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/noAuth"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Error message"
+          }
+        },
+        "security": [{ "bearerAuth": [] }]
+      },
+      "put": {
+        "tags": ["project"],
+        "summary": "Update a project for the user with uuid",
+        "description": "Must be authenticated to be called",
+        "operationId": "projectUpdate",
+        "requestBody": {
+          "description": "Project JSON body",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "displayName": {
+                    "type": "string",
+                    "example": "My Super Project",
+                    "minLength": 1,
+                    "maxLength": 50
+                  }
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "projectUuid",
+            "in": "path",
+            "description": "The uuid of a project already created",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful operation",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/default_result"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Project uuid not found"
+          },
+          "401": {
+            "description": "Unauthenticated request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/noAuth"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Error message"
+          }
+        },
+        "security": [{ "bearerAuth": [] }]
+      },
+      "delete": {
+        "tags": ["project"],
+        "summary": "Delete a project for the user with uuid",
+        "description": "Must be authenticated to be called",
+        "operationId": "projectDelete",
+        "parameters": [
+          {
+            "name": "projectUuid",
+            "in": "path",
+            "description": "The uuid of a project already created",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful operation",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/default_result"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Project uuid not found"
+          },
+          "401": {
+            "description": "Unauthenticated request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/noAuth"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Error message"
+          }
+        },
+        "security": [{ "bearerAuth": [] }]
+      }
+    },
+    "/project/resetPrivate/{projectUuid}": {
+      "put": {
+        "tags": ["project"],
+        "summary": "Regenerate a project's private key for the user with uuid",
+        "description": "Must be authenticated to be called",
+        "operationId": "projectResetPrivateKey",
+        "parameters": [
+          {
+            "name": "projectUuid",
+            "in": "path",
+            "description": "The uuid of a project already created",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful operation",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/project"
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Any projects found"
+          },
+          "401": {
+            "description": "Unauthenticated request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/noAuth"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Error message"
           }
         },
         "security": [{ "bearerAuth": [] }]
@@ -102,7 +406,7 @@
           }
         }
       },
-      "userProfil": {
+      "user": {
         "type": "object",
         "properties": {
           "uid": {
@@ -125,11 +429,71 @@
             "type": "boolean",
             "example": false
           },
-          "fluxUsage": {
-            "type": "integer",
-            "format": "int64"
+          "createdAt": {
+            "type": "string",
+            "format": "date-time"
+          }
+        }
+      },
+      "project_light": {
+        "type": "object",
+        "properties": {
+          "uuid": {
+            "type": "string",
+            "example": "34424197-5a7f-4fff-b0df-a8ef5cac2c90"
+          },
+          "ownerUid": {
+            "type": "string",
+            "example": "QkZApItXjJVKHUVMy9MQggjCYG23"
+          },
+          "displayName": {
+            "type": "string",
+            "example": "My Super Project"
+          },
+          "publicKey": {
+            "type": "string",
+            "example": "Dld8SH",
+            "minLength": 6,
+            "maxLength": 6
+          },
+          "updatedAt": {
+            "type": "string",
+            "format": "date-time"
+          }
+        }
+      },
+      "project": {
+        "type": "object",
+        "properties": {
+          "uuid": {
+            "type": "string",
+            "example": "34424197-5a7f-4fff-b0df-a8ef5cac2c90"
+          },
+          "ownerUid": {
+            "type": "string",
+            "example": "QkZApItXjJVKHUVMy9MQggjCYG23"
+          },
+          "displayName": {
+            "type": "string",
+            "example": "My Super Project"
+          },
+          "publicKey": {
+            "type": "string",
+            "example": "Dld8SH",
+            "minLength": 6,
+            "maxLength": 6
+          },
+          "privateKey": {
+            "type": "string",
+            "example": "XwPp9xazJ0ku5CZnlmgAx2",
+            "minLength": 22,
+            "maxLength": 22
           },
           "createdAt": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "updatedAt": {
             "type": "string",
             "format": "date-time"
           }
