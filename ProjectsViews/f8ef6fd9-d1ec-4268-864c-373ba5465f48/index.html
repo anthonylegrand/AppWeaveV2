@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MyPage</title>
+  </head>
+  <body>
+    <h1>MyPage</h1>
+    <button data-event="test-btn">Test</button>
+    <button data-event="test-bis-btn">Test bis</button>
+    <!-- Envoyer des données au serveur -->
+    <a data-emit="lastTest">lastTest</a>
+    <!-- Quand "lastTest" est submit un json avec les inputs contenant datatarget="lastTest" est envoyé en body -->
+    <input data-value="lastTest" type="text" />
+    <!-- Au chargement de la page demander les donnée et remplacer les %keys% -->
+    <p data-target="UserData">Bonjour, %User% tu as %coins% coins</p>
+    <!-- Dés que des données arrives dans un event remplacer les %keys% -->
+    <p data-listen="GameStatus">
+      <!--  -->
+      Le status de la games est acctuellement %game_status%
+    </p>
+    <script
+      type="module"
+      src="http://localhost:81/public/js/injectionViews.js"
+    ></script>
+  </body>
+</html>
