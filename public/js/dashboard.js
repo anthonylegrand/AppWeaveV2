@@ -7,6 +7,9 @@ fetch("/project/" + urlParams.get("projectUuid"), {
   .then((json) => {
     console.log(json);
 
+    document.getElementById("mobile-mockup").src =
+      "http://localhost:81/view/" + json.uuid;
+
     document.getElementById("header-project-name").innerHTML =
       json.displayName || "";
   });

@@ -9,6 +9,11 @@ body {
     width: 0px;
   }
 }
+@media screen and (max-width: 1200px) {
+  header ul {
+    max-width: 100px;
+  }
+}
 header {
   display: flex;
   justify-content: space-between;
@@ -18,12 +23,18 @@ header {
 header > div {
   max-height: 38px;
 }
+header > div > a {
+  color: black;
+}
 header ul {
+  position: relative;
   list-style-type: none;
   border: 1px solid lightgray;
   border-radius: 15px;
   margin: 0;
   padding: 0;
+  z-index: 99;
+  background-color: white;
 }
 header ul > li {
   padding: 10px;
@@ -43,4 +54,8 @@ header ul > li:not(:first-child) {
 }
 header ul:hover > li {
   display: block;
+}
+
+span.icon {
+  font-size: x-large;
 }
